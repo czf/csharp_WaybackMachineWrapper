@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>czf.apiwrappers.waybackmachine</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>czf</authors>
+    <owners>czf</owners>
+    <!--<licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+    <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>wrapper to interact with waybackmachine at web.archive.org</description>
+    <releaseNotes>Initial release supports checking for existance and saving</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Waybackmachine</tags>
+  </metadata>
+</package>
