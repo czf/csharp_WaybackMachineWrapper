@@ -25,7 +25,9 @@ namespace WaybackMachineWrapper
         #endregion
 
         #region Constructors
-        public WaybackClient() : this(new HttpClient()) { }
+        public WaybackClient() : this(new HttpClient(
+            new HttpClientHandler() { AllowAutoRedirect=false}
+            )) { }
 
         internal WaybackClient(HttpClient client)
         //public WaybackClient( restClient, IRestRequestFactory restRequestFactory)
@@ -74,7 +76,7 @@ namespace WaybackMachineWrapper
                     using (HttpContent content = response.Content)
                     {
                         
-                        result = content.Headers.ContentLocation;
+                        result = content.Headers.ContentLocation ?? response.Headers.Location;
                         if (!result.IsAbsoluteUri)
                         {
                             result = new Uri(BASE_URI, result.OriginalString);
