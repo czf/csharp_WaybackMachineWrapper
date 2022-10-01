@@ -14,7 +14,7 @@ namespace WaybackMachineWrapper
     public class WaybackClient : IDisposable
     {
         #region static/consts
-        private static readonly Uri BASE_URI = new Uri("http://web.archive.org/");
+        private static readonly Uri BASE_URI = new Uri("https://web.archive.org/");
         private const string AVAILABLE_PATH = "wayback/available/?url=";
         private const string SAVE_PATH = "save/";
         #endregion
