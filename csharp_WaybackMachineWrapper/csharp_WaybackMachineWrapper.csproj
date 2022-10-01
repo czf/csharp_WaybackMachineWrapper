@@ -14,10 +14,10 @@
 		<RepositoryUrl>https://github.com/czf/csharp_WaybackMachineWrapper</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/czf/csharp_WaybackMachineWrapper</PackageProjectUrl>
 
-		<Version>2.0.1</Version>
-		<PackageReleaseNotes>2.0.1 checking an alternative location to prevent null reference exceptions</PackageReleaseNotes>
-		<AssemblyVersion>2.0.0.1</AssemblyVersion>
-		<FileVersion>2.0.0.1</FileVersion>
+		<Version>2.0.2</Version>
+		<PackageReleaseNotes>2.0.2 use https for web.archive.org</PackageReleaseNotes>
+		<AssemblyVersion>2.0.2</AssemblyVersion>
+		<FileVersion>2.0.2</FileVersion>
 	</PropertyGroup>
 
 
