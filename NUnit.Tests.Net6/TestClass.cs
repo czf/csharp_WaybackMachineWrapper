@@ -1,16 +1,6 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using WaybackMachineWrapper;
-using Moq;
-using System.Net;
-using System.Net.Http;
-using System.Globalization;
-using System.Threading;
-using System.IO;
 
 namespace NUnit.Tests
 {
@@ -52,6 +42,7 @@ namespace NUnit.Tests
         {
             WaybackClient client = new WaybackClient();
             AvailableResponse response = client.Available(new Uri("https://www.seattletimes.com"));
+            
         }
 
 
@@ -71,12 +62,12 @@ namespace NUnit.Tests
         }
 
         //[Test]
-        //public void Save()
+        //public async Task SaveV2()
         //{
         //    WaybackClient client = new WaybackClient();
-        //    Uri location = client.Save(new Uri("http://www.zappos.com/p/nike-shox-nz-wolf-grey-metallic-gold-anthracite/product/7395033/color/673110"));
+        //    Uri location = await client.SaveAsyncV2(new Uri("https://www.seattletimes.com/sports/high-school/odea-rides-jason-brown-jr-for-second-half-comeback-to-beat-bothell/"));
         //    Assert.IsNotNull(location);
-        //    Assert.IsTrue(location.AbsoluteUri.Contains("archive.org") && location.AbsoluteUri.Contains("zappos.com"));
+        //    //Assert.IsTrue(location.AbsoluteUri.Contains("archive.org") && location.AbsoluteUri.Contains(""));
         //}
     }
 
