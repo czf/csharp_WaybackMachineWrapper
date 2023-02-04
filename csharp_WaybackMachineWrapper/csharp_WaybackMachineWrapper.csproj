@@ -14,10 +14,10 @@
 		<RepositoryUrl>https://github.com/czf/csharp_WaybackMachineWrapper</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/czf/csharp_WaybackMachineWrapper</PackageProjectUrl>
 
-		<Version>2.1.0</Version>
-		<PackageReleaseNotes>2.1.0 adding SaveAsyncV2 which uses POST instead of GET</PackageReleaseNotes>
-		<AssemblyVersion>2.1.0</AssemblyVersion>
-		<FileVersion>2.1.0</FileVersion>
+		<Version>2.1.1</Version>
+		<PackageReleaseNotes>2.1.1 update base uri to archive.org and bump newtonsoft version</PackageReleaseNotes>
+		<AssemblyVersion>2.1.1</AssemblyVersion>
+		<FileVersion>2.1.1</FileVersion>
 	</PropertyGroup>
 
 
@@ -31,7 +31,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>

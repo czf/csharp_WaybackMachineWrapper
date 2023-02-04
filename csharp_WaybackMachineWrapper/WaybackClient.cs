@@ -16,7 +16,7 @@ namespace WaybackMachineWrapper
     {
         #region static/consts
         private static readonly Regex _captureSpanPattern = new Regex("watchJob\\(\"(.+?)\"");
-        private static readonly Uri BASE_URI = new Uri("https://web.archive.org/");
+        private static readonly Uri BASE_URI = new Uri("https://archive.org/");
         private const string AVAILABLE_PATH = "wayback/available/?url=";
         private const string SAVE_PATH = "save/";
         private const string SAVE_STATUS_PATH = "save/status/";
