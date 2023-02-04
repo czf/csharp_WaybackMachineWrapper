@@ -16,7 +16,8 @@ namespace WaybackMachineWrapper
     {
         #region static/consts
         private static readonly Regex _captureSpanPattern = new Regex("watchJob\\(\"(.+?)\"");
-        private static readonly Uri BASE_URI = new Uri("https://archive.org/");
+        private static readonly Uri AVAILABLE_BASE_URI = new Uri("https://archive.org/");
+        private static readonly Uri SAVE_BASE_URI = new Uri("https://web.archive.org/");
         private const string AVAILABLE_PATH = "wayback/available/?url=";
         private const string SAVE_PATH = "save/";
         private const string SAVE_STATUS_PATH = "save/status/";
@@ -34,7 +35,6 @@ namespace WaybackMachineWrapper
         internal WaybackClient(HttpClient client)
         {
             _client = client;
-            _client.BaseAddress = BASE_URI;
             //_client.DefaultRequestHeaders.Accept.Add(MediaTypeWithQualityHeaderValue.Parse("application/json"));
         }
                 
@@ -47,7 +47,7 @@ namespace WaybackMachineWrapper
             AvailableResponse result = null;
             
             //IRestResponse response = await _restClient.ExecuteGetTaskAsync(request);
-            using (HttpResponseMessage response = await _client.GetAsync(AVAILABLE_PATH + uri))
+            using (HttpResponseMessage response = await _client.GetAsync(AVAILABLE_BASE_URI + AVAILABLE_PATH + uri))
             {
                 using (HttpContent content = response.Content)
                 {
@@ -85,7 +85,7 @@ namespace WaybackMachineWrapper
                 new KeyValuePair<string,string>("url", uri.ToString()),
                 new KeyValuePair<string,string>("capture_all", "on" )
             }.Take(captureErrorPages ? 2 : 1)))
-            using (HttpResponseMessage response = await _client.PostAsync(SAVE_PATH + uri, requestContent))
+            using (HttpResponseMessage response = await _client.PostAsync(SAVE_BASE_URI + SAVE_PATH + uri, requestContent))
             {
                 if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Redirect)
                 {
@@ -100,7 +100,7 @@ namespace WaybackMachineWrapper
                             SaveStatusResponse statusResponse = await PollJobStatus(jobId);
                             if (statusResponse != null)
                             {
-                                result = new Uri(BASE_URI, $"web/{statusResponse.timestamp}/{uri}");
+                                result = new Uri(SAVE_BASE_URI, $"web/{statusResponse.timestamp}/{uri}");
                             }
                         }
                     }
@@ -119,7 +119,7 @@ namespace WaybackMachineWrapper
             Uri result = null;
 
 
-            using (HttpResponseMessage response = await _client.GetAsync(SAVE_PATH + uri))
+            using (HttpResponseMessage response = await _client.GetAsync(SAVE_BASE_URI + SAVE_PATH + uri))
             {
                 if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Redirect)
                 {
@@ -129,7 +129,7 @@ namespace WaybackMachineWrapper
                         result = content.Headers.ContentLocation ?? response.Headers.Location;
                         if (!result.IsAbsoluteUri)
                         {
-                            result = new Uri(BASE_URI, result.OriginalString);
+                            result = new Uri(SAVE_BASE_URI, result.OriginalString);
                         }
 
                     }
@@ -156,7 +156,7 @@ namespace WaybackMachineWrapper
             string status = null;
             do
             {
-                using (HttpResponseMessage response = await _client.GetAsync(SAVE_STATUS_PATH + jobId))
+                using (HttpResponseMessage response = await _client.GetAsync(SAVE_BASE_URI + SAVE_STATUS_PATH + jobId))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {

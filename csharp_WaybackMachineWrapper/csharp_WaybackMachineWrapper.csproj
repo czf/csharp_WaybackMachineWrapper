@@ -14,10 +14,12 @@
 		<RepositoryUrl>https://github.com/czf/csharp_WaybackMachineWrapper</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/czf/csharp_WaybackMachineWrapper</PackageProjectUrl>
 
-		<Version>2.1.1</Version>
-		<PackageReleaseNotes>2.1.1 update base uri to archive.org and bump newtonsoft version</PackageReleaseNotes>
-		<AssemblyVersion>2.1.1</AssemblyVersion>
-		<FileVersion>2.1.1</FileVersion>
+		<Version>2.1.2</Version>
+		<PackageReleaseNotes>2.1.2 use different base uri depending on operation.  Generate snupkg</PackageReleaseNotes>
+		<AssemblyVersion>2.1.2</AssemblyVersion>
+		<FileVersion>2.1.2</FileVersion>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>
 
 

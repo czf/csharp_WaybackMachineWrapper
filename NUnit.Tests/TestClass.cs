@@ -71,12 +71,12 @@ namespace NUnit.Tests
         }
 
         //[Test]
-        //public void Save()
+        //public async Task Save()
         //{
         //    WaybackClient client = new WaybackClient();
-        //    Uri location = client.Save(new Uri("http://www.zappos.com/p/nike-shox-nz-wolf-grey-metallic-gold-anthracite/product/7395033/color/673110"));
+        //    Uri location = await client.SaveAsyncV2(new Uri("https://www.seattletimes.com/entertainment/movies/new-movies-in-seattle-area-theaters-this-week-knock-at-the-cabin-80-for-brady/"));
         //    Assert.IsNotNull(location);
-        //    Assert.IsTrue(location.AbsoluteUri.Contains("archive.org") && location.AbsoluteUri.Contains("zappos.com"));
+        //    Assert.IsTrue(location.AbsoluteUri.Contains("archive.org") && location.AbsoluteUri.Contains("seattletimes.com"));
         //}
     }
 
